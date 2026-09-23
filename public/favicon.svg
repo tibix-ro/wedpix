@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+	<title id="title">WedPix Favicon</title>
+	<desc id="desc">Rose-gold heart icon for WedPix</desc>
+	<defs>
+		<linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0%" stop-color="#C9A96E"/>
+			<stop offset="100%" stop-color="#E8D5A3"/>
+		</linearGradient>
+	</defs>
+	<rect width="64" height="64" rx="18" fill="#F7F1EA"/>
+	<path d="M32 50C20 42 12 34 12 24c0-6 4.7-10 10.2-10 4 0 7.2 2.1 9.8 5.8 2.6-3.7 5.8-5.8 9.8-5.8C47.3 14 52 18 52 24c0 10-8 18-20 26Z" fill="url(#gold)"/>
+</svg>

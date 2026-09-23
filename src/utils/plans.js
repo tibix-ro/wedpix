@@ -1,0 +1,122 @@
+// Pricing plan constants — mirrors api/config.php PLANS array
+// Used across UI for feature checks, labels, and Stripe redirect
+
+export const PLANS = {
+  demo: {
+    id: 'demo',
+    name: 'Demo',
+    emoji: '🚀',
+    price: 0,
+    originalPrice: null,
+    photoLimit: 50,
+    video: false,
+    zip: false,
+    slideshow: false,
+    validityDays: 2 / 24, // 2 hours
+    maxMB: 5,
+    color: 'from-gray-400 to-gray-600',
+    features: [
+      '50 fotografii HD',
+      '1 eveniment per abonament',
+      'Testare gratuită',
+      'Link valabil 2 ore',
+      'Galerie pentru invitați',
+    ],
+    missing: ['Download ZIP', 'Live Slideshow', 'Video', 'Calitate 4K'],
+  },
+  silver: {
+    id: 'silver',
+    name: 'Silver',
+    emoji: '🥈',
+    price: 49,
+    originalPrice: 119,
+    photoLimit: 200,
+    video: false,
+    zip: false,
+    slideshow: false,
+    validityDays: 3,
+    maxMB: 5,
+    color: 'from-slate-400 to-slate-600',
+    features: [
+      '200 fotografii HD',
+      '1 eveniment per abonament',
+      'Compresie automată',
+      'Link valabil 3 zile',
+      'Galerie pentru invitați',
+    ],
+    missing: ['Download ZIP', 'Live Slideshow', 'Video', 'Calitate 4K'],
+  },
+  gold: {
+    id: 'gold',
+    name: 'Gold',
+    emoji: '🥇',
+    price: 149,
+    originalPrice: 229,
+    photoLimit: 1000,
+    video: false,
+    zip: true,
+    slideshow: false,
+    validityDays: 30,
+    maxMB: 20,
+    color: 'from-yellow-500 to-amber-600',
+    badge: 'Cel mai popular',
+    features: [
+      '1.000 fotografii originale 4K',
+      '1 eveniment per abonament',
+      'Calitate originală (fără compresie)',
+      'Link valabil 30 zile',
+      'Download arhivă ZIP',
+      'Galerie pentru invitați',
+    ],
+    missing: ['Live Slideshow', 'Video'],
+  },
+  platinum: {
+    id: 'platinum',
+    name: 'Platinum',
+    emoji: '💎',
+    price: 299,
+    originalPrice: 399,
+    photoLimit: null, // unlimited
+    video: true,
+    zip: true,
+    slideshow: true,
+    validityDays: 365,
+    maxMB: 200,
+    color: 'from-violet-500 to-purple-700',
+    features: [
+      'Fotografii nelimitate',
+      '1 eveniment per abonament',
+      'Video (MP4, MOV) — max 200 MB',
+      'Calitate originală 4K',
+      'Link valabil 12 luni',
+      'Download arhivă ZIP',
+      'Live Slideshow la locație',
+    ],
+    missing: [],
+  },
+}
+
+export const PLAN_LIST = Object.values(PLANS)
+
+// Purchasable add-ons — mirrors api/config.php ADDONS array
+export const ADDONS = {
+  zip: { id: 'zip', name: 'Download ZIP', price: 19, type: 'toggle' },
+  slideshow: { id: 'slideshow', name: 'Live Slideshow', price: 29, type: 'toggle' },
+  video: { id: 'video', name: 'Video upload', price: 39, type: 'toggle' },
+  extra_validity: {
+    id: 'extra_validity',
+    name: 'Extra valabilitate',
+    price: 10,
+    type: 'quantity',
+    unitDays: 7,
+    maxUnits: 10,
+  },
+  extra_storage: {
+    id: 'extra_storage',
+    name: 'Extra stocare',
+    price: 15,
+    type: 'quantity',
+    unitPhotos: 100,
+    maxUnits: 20,
+  },
+}

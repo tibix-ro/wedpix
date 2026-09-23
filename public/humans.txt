@@ -1,0 +1,8 @@
+/* TEAM */
+Project: WedPix
+Site: https://www.wedpix.ro/
+Contact: help@wedpix.ro
+Tech: React, Vite, Tailwind CSS, PHP, MySQL
+
+/* THANKS */
+Multumim tuturor utilizatorilor care au folosit WedPix la evenimentele lor.

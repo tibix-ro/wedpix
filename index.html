@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="description" content="WedPix — Galeria foto a nunții. Scanează codul QR, urcă amintirile și bucură-te de fiecare moment surprins." />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://www.wedpix.ro/" />
+    <!-- LCP image preload: mobile first, then desktop -->
+    <link rel="preload" as="image" type="image/webp" href="/hero-mobile-01.webp" media="(max-width: 768px)" fetchpriority="high" />
+    <link rel="preload" as="image" type="image/webp" href="/hero-desktop-01.webp" media="(min-width: 769px)" fetchpriority="high" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <meta name="theme-color" content="#8A6E34" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+
+    <!-- Open Graph -->
+    <meta property="og:title"       content="WedPix — Amintirile Nunții" />
+    <meta property="og:description" content="Încarcă pozele tale din ziua cea mare!" />
+    <meta property="og:type"        content="website" />
+    <meta property="og:url"         content="https://www.wedpix.ro/" />
+    <meta property="og:image"       content="https://www.wedpix.ro/og-wedpix.svg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="WedPix — Amintirile Nunții" />
+    <meta name="twitter:description" content="Încarcă pozele tale din ziua cea mare!" />
+    <meta name="twitter:image" content="https://www.wedpix.ro/og-wedpix.svg" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "WedPix",
+        "url": "https://www.wedpix.ro/",
+        "logo": "https://www.wedpix.ro/favicon.svg",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "email": "help@wedpix.ro",
+          "contactType": "customer support",
+          "availableLanguage": ["ro", "en"]
+        }
+      }
+    </script>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "WedPix",
+        "url": "https://www.wedpix.ro/",
+        "inLanguage": "ro-RO",
+        "publisher": {
+          "@type": "Organization",
+          "name": "WedPix"
+        }
+      }
+    </script>
+
+    <!-- Fonts are self-hosted via @fontsource (imported in main.jsx) -->
+    <!-- Font-display: swap via @fontsource. size-adjust compensates FOUT CLS -->
+    <style>
+      @font-face {
+        font-family: 'Inter Fallback';
+        src: local('Arial');
+        size-adjust: 107%;
+        ascent-override: 90%;
+        descent-override: 22%;
+        line-gap-override: 0%;
+      }
+      @font-face {
+        font-family: 'Cormorant Garamond Fallback';
+        src: local('Georgia');
+        size-adjust: 98%;
+        ascent-override: 92%;
+        descent-override: 24%;
+        line-gap-override: 0%;
+      }
+      html { font-family: 'Inter', 'Inter Fallback', system-ui, sans-serif; }
+      h1, h2, h3 { font-family: 'Cormorant Garamond', 'Cormorant Garamond Fallback', Georgia, serif; }
+    </style>
+
+    <title>WedPix — Amintirile Nunții</title>
+  </head>
+  <body class="bg-ivory">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

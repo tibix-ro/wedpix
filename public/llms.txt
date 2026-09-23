@@ -1,0 +1,26 @@
+# WedPix
+
+> WedPix este o platforma pentru colectarea fotografiilor de la invitatii unui eveniment prin link sau cod QR.
+
+## Canonical website
+- https://www.wedpix.ro/
+
+## Public pages
+- https://www.wedpix.ro/
+- https://www.wedpix.ro/contact
+- https://www.wedpix.ro/privacy-policy
+- https://www.wedpix.ro/terms-of-service
+- https://www.wedpix.ro/cookie-policy
+- https://www.wedpix.ro/gdpr
+- https://www.wedpix.ro/dpa
+- https://www.wedpix.ro/accessibility
+
+## Restricted areas (not intended for indexing/training)
+- https://www.wedpix.ro/admin
+- https://www.wedpix.ro/dashboard
+- https://www.wedpix.ro/profile
+- https://www.wedpix.ro/event/*
+- https://www.wedpix.ro/api/*
+
+## Contact
+- Email: help@wedpix.ro

@@ -1,0 +1,101 @@
+# SPA routing — redirect everything to index.html except API and real files
+Options -MultiViews
+RewriteEngine On
+RewriteBase /
+
+# Canonical host: redirect non-www to www
+RewriteCond %{HTTP_HOST} ^wedpix\.ro$ [NC]
+RewriteRule ^ https://www.wedpix.ro%{REQUEST_URI} [R=301,L]
+
+# Security Headers
+Header always set X-Frame-Options "SAMEORIGIN"
+Header always set X-Content-Type-Options "nosniff"
+Header always set X-XSS-Protection "1; mode=block"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+
+# HSTS (HTTP Strict Transport Security) - only for HTTPS
+Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
+
+# Content Security Policy
+Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://js.stripe.com https://static.cloudflareinsights.com; frame-src https://js.stripe.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob: https: https://www.googletagmanager.com https://www.google-analytics.com; connect-src 'self' https://wedpix.ro https://www.wedpix.ro https://www.google-analytics.com https://api.stripe.com https://static.cloudflareinsights.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'"
+
+# Static caching (Lighthouse: efficient cache lifetimes)
+<IfModule mod_expires.c>
+	ExpiresActive On
+	ExpiresByType text/css "access plus 1 year"
+	ExpiresByType application/javascript "access plus 1 year"
+	ExpiresByType text/javascript "access plus 1 year"
+	ExpiresByType image/webp "access plus 1 year"
+	ExpiresByType image/png "access plus 1 year"
+	ExpiresByType image/jpeg "access plus 1 year"
+	ExpiresByType image/svg+xml "access plus 1 year"
+	ExpiresByType image/x-icon "access plus 1 year"
+	ExpiresByType font/woff2 "access plus 1 year"
+	ExpiresByType font/woff "access plus 1 year"
+	ExpiresByType application/font-woff2 "access plus 1 year"
+</IfModule>
+
+<IfModule mod_headers.c>
+	# Vite emits content-hashed asset filenames, so JS/CSS are safe to cache long-term.
+	<FilesMatch "\.(?:css|js)$">
+		Header set Cache-Control "public, max-age=31536000, immutable"
+	</FilesMatch>
+
+	# The service worker and web manifest must always revalidate so PWA updates
+	# reach users promptly (these are NOT content-hashed).
+	<FilesMatch "(?:sw\.js|manifest\.webmanifest)$">
+		Header set Cache-Control "no-cache, max-age=0, must-revalidate"
+	</FilesMatch>
+
+	<FilesMatch "\.(?:webp|png|jpe?g|svg|ico|woff2?|ttf|otf)$">
+		Header set Cache-Control "public, max-age=31536000, immutable"
+	</FilesMatch>
+
+	<FilesMatch "\.(?:html)$">
+		Header set Cache-Control "no-cache, no-store, must-revalidate"
+	</FilesMatch>
+</IfModule>
+
+# Skip API, uploads, and static assets
+RewriteRule ^api/      - [L]
+RewriteRule ^uploads/  - [L]
+
+# PHP upload limits for photo/video.
+# LiteSpeed/mod_php read php_value from .htaccess; FPM/CGI use api/.user.ini.
+# IfModule guards prevent 500 errors on hosts without these modules.
+<IfModule LiteSpeed>
+	php_value upload_max_filesize 512M
+	php_value post_max_size 520M
+	php_value max_execution_time 300
+	php_value max_input_time 300
+	php_value memory_limit 256M
+</IfModule>
+<IfModule mod_php.c>
+	php_value upload_max_filesize 512M
+	php_value post_max_size 520M
+	php_value max_execution_time 300
+	php_value max_input_time 300
+	php_value memory_limit 256M
+</IfModule>
+<IfModule mod_php7.c>
+	php_value upload_max_filesize 512M
+	php_value post_max_size 520M
+	php_value max_execution_time 300
+	php_value max_input_time 300
+	php_value memory_limit 256M
+</IfModule>
+<IfModule mod_php8.c>
+	php_value upload_max_filesize 512M
+	php_value post_max_size 520M
+	php_value max_execution_time 300
+	php_value max_input_time 300
+	php_value memory_limit 256M
+</IfModule>
+
+# Let existing files/dirs pass through
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# All other requests → React SPA
+RewriteRule ^ index.html [L]

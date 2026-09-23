@@ -1,0 +1,57 @@
+{
+  "name": "WedPix — Galeria foto a nunții",
+  "short_name": "WedPix",
+  "description": "Scanează codul QR, urcă amintirile din ziua cea mare și bucură-te de fiecare moment surprins.",
+  "lang": "ro",
+  "dir": "ltr",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#FDF8F0",
+  "theme_color": "#8A6E34",
+  "categories": ["photo", "lifestyle", "social"],
+  "icons": [
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/wedpix-ss-desktop.png",
+      "sizes": "1280x1200",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Galeria foto WedPix pe desktop"
+    },
+    {
+      "src": "/wedpix-ss-mobile.png",
+      "sizes": "1320x2868",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Galeria foto WedPix pe telefon"
+    }
+  ]
+}

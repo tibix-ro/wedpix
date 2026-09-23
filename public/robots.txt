@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sensitive/private areas
+Disallow: /api/
+Disallow: /admin
+Disallow: /dashboard
+Disallow: /profile
+Disallow: /event/
+
+Sitemap: https://www.wedpix.ro/sitemap.xml
